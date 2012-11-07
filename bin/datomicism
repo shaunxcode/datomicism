@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var Server = require("../lib/Server.js").Server;
+var server = new Server();
+server.start();

@@ -1,0 +1,13 @@
+{
+	"name": "DatomicIsm",
+	"dependencies": {
+		"component/jquery": "*",
+		"component/underscore": "*",
+		"component/emitter": "*",
+		"shaunxcode/jsedn": "*",
+		"shaunxcode/bling": "*",
+		"shaunxcode/CartographicSurface": "*",
+		"shaunxcode/sketch": "*",
+		"component/color-picker": "*"
+	}
+}

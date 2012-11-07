@@ -1,0 +1,1275 @@
+
+body {
+    background-image: url(/css/cardboard_flat.png);
+    font-family: ubuntu-mono, serif;
+    color: #333;
+    background-color: #efefef;
+    margin: 0;
+    padding: 0;
+    width:3333px;
+    height: 3333px; 
+    margin-top: 51px;
+}
+
+.modal {
+    position: absolute;
+    border-radius: 5px;
+    border: 1px solid #999;
+    padding: 5px;
+    background: #fefefe;
+    overflow: hidden;
+    clear: both;
+}
+
+.widget {
+    background: #fffffe;
+    border-radius: 5px;
+    border: 1px solid #999;
+    position: absolute;
+    overflow: hidden;
+
+    .handle {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border: 1px solid #666;
+        background: #666;
+        color: white;
+        padding: 5px;
+        overflow: hidden;
+        .title { 
+            float: left;
+        }
+
+        .widgetButtons {
+            float: right;
+        }
+
+        input {
+            margin-top: 2px;
+            border: 0;
+            background: none;
+            margin-left: 5px;
+            font-family: inherit;
+            font-size: 95%;
+            color: #fff;
+        }
+    }
+}
+
+
+
+.widget.note.ui-draggable, .widget.label.ui-draggable {
+    background: none;
+    border: 0;
+    width: 300px;
+    height: 150px;
+    .handle {
+        border: 0;
+        background: none;
+        color: #333;
+    }
+
+    .widgetButtons {
+        position: absolute; 
+        right: 5px; 
+        top: 5px;
+    }
+
+    .CodeMirror {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .parsed {        
+        > *:first-child {
+          margin-top: 0 !important; }
+        > *:last-child {
+          margin-bottom: 0 !important; }
+
+        a {
+          color: #4183C4; }
+        a.absent {
+          color: #cc0000; }
+        a.anchor {
+          display: block;
+          padding-left: 30px;
+          margin-left: -30px;
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0; }
+
+        h1, h2, h3, h4, h5, h6 {
+          margin: 20px 0 10px;
+          padding: 0;
+          font-weight: bold;
+          -webkit-font-smoothing: antialiased;
+          cursor: text;
+          position: relative; }
+
+        h1 tt, h1 code {
+          font-size: inherit; }
+
+        h2 tt, h2 code {
+          font-size: inherit; }
+
+        h3 tt, h3 code {
+          font-size: inherit; }
+
+        h4 tt, h4 code {
+          font-size: inherit; }
+
+        h5 tt, h5 code {
+          font-size: inherit; }
+
+        h6 tt, h6 code {
+          font-size: inherit; }
+
+        h1 {
+          font-size: 28px;
+          color: black; }
+
+        h2 {
+          font-size: 24px;
+          border-bottom: 1px solid #cccccc;
+          color: black; }
+
+        h3 {
+          font-size: 18px; }
+
+        h4 {
+          font-size: 16px; }
+
+        h5 {
+          font-size: 14px; }
+
+        h6 {
+          color: #777777;
+          font-size: 14px; }
+
+        p, blockquote, ul, ol, dl, li, table, pre {
+          margin: 15px 0; }
+
+        hr {
+          background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+          border: 0 none;
+          color: #cccccc;
+          height: 4px;
+          padding: 0; }
+
+        > h2:first-child {
+          margin-top: 0;
+          padding-top: 0; }
+         > h1:first-child {
+          margin-top: 0;
+          padding-top: 0; }
+        > h1:first-child + h2 {
+            margin-top: 0;
+            padding-top: 0; }
+        > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+          margin-top: 0;
+          padding-top: 0; }
+
+        a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+          margin-top: 0;
+          padding-top: 0; }
+
+        h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+          margin-top: 0; }
+
+        li p.first {
+          display: inline-block; }
+
+        ul, ol {
+          padding-left: 30px; }
+
+        ul :first-child, ol :first-child {
+          margin-top: 0; }
+
+        ul :last-child, ol :last-child {
+          margin-bottom: 0; }
+
+        dl {
+          padding: 0; }
+          dl dt {
+            font-size: 14px;
+            font-weight: bold;
+            font-style: italic;
+            padding: 0;
+            margin: 15px 0 5px; }
+            dl dt:first-child {
+              padding: 0; }
+            dl dt > :first-child {
+              margin-top: 0; }
+            dl dt > :last-child {
+              margin-bottom: 0; }
+          dl dd {
+            margin: 0 0 15px;
+            padding: 0 15px; }
+            dl dd > :first-child {
+              margin-top: 0; }
+            dl dd > :last-child {
+              margin-bottom: 0; }
+
+        blockquote {
+          border-left: 4px solid #dddddd;
+          padding: 0 15px;
+          color: #777777; }
+          blockquote > :first-child {
+            margin-top: 0; }
+          blockquote > :last-child {
+            margin-bottom: 0; }
+
+        table {
+          padding: 0; }
+          table tr {
+            border-top: 1px solid #cccccc;
+            background-color: white;
+            margin: 0;
+            padding: 0; }
+            table tr:nth-child(2n) {
+              background-color: #f8f8f8; }
+            table tr th {
+              font-weight: bold;
+              border: 1px solid #cccccc;
+              text-align: left;
+              margin: 0;
+              padding: 6px 13px; }
+            table tr td {
+              border: 1px solid #cccccc;
+              text-align: left;
+              margin: 0;
+              padding: 6px 13px; }
+            table tr th :first-child, table tr td :first-child {
+              margin-top: 0; }
+            table tr th :last-child, table tr td :last-child {
+              margin-bottom: 0; }
+
+        img {
+          max-width: 100%; }
+
+        span.frame {
+          display: block;
+          overflow: hidden; }
+          span.frame > span {
+            border: 1px solid #dddddd;
+            display: block;
+            float: left;
+            overflow: hidden;
+            margin: 13px 0 0;
+            padding: 7px;
+            width: auto; }
+          span.frame span img {
+            display: block;
+            float: left; }
+          span.frame span span {
+            clear: both;
+            color: #333333;
+            display: block;
+            padding: 5px 0 0; }
+        span.align-center {
+          display: block;
+          overflow: hidden;
+          clear: both; }
+          span.align-center > span {
+            display: block;
+            overflow: hidden;
+            margin: 13px auto 0;
+            text-align: center; }
+          span.align-center span img {
+            margin: 0 auto;
+            text-align: center; }
+        span.align-right {
+          display: block;
+          overflow: hidden;
+          clear: both; }
+          span.align-right > span {
+            display: block;
+            overflow: hidden;
+            margin: 13px 0 0;
+            text-align: right; }
+          span.align-right span img {
+            margin: 0;
+            text-align: right; }
+        span.float-left {
+          display: block;
+          margin-right: 13px;
+          overflow: hidden;
+          float: left; }
+          span.float-left span {
+            margin: 13px 0 0; }
+        span.float-right {
+          display: block;
+          margin-left: 13px;
+          overflow: hidden;
+          float: right; }
+          span.float-right > span {
+            display: block;
+            overflow: hidden;
+            margin: 13px auto 0;
+            text-align: right; }
+
+        code, tt {
+          margin: 0 2px;
+          padding: 0 5px;
+          white-space: nowrap;
+          border: 1px solid #eaeaea;
+          background-color: #f8f8f8;
+          border-radius: 3px; }
+
+        pre code {
+          margin: 0;
+          padding: 0;
+          white-space: pre;
+          border: none;
+          background: transparent; }
+   
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            text-decoration: italic;
+        }
+        .highlight pre {
+          background-color: #f8f8f8;
+          border: 1px solid #cccccc;
+          font-size: 13px;
+          line-height: 19px;
+          overflow: auto;
+          padding: 6px 10px;
+          border-radius: 3px; }
+
+        pre {
+          background-color: #f8f8f8;
+          border: 1px solid #cccccc;
+          font-size: 13px;
+          line-height: 19px;
+          overflow: auto;
+          padding: 6px 10px;
+          border-radius: 3px; }
+          pre code, pre tt {
+            background-color: transparent;
+            border: none; }
+    }
+}
+
+.widget.label.ui-draggable {
+    .noteContent {
+        width: 350px;
+        font-size: 150%;
+    }
+}
+
+.widget.note.ui-draggable {
+    height: 100px;
+    .noteContent {
+        width: 250px;
+        float: left;
+        white-space: pre;
+    }
+
+}
+
+
+
+.widget.browser.ui-draggable {
+    height: 350px;
+    width: 500px;
+
+    .cols {
+        position: relative;
+        overflow: hidden;
+        clear: both;
+        
+        .col {
+            float: left;
+            display: block;
+            overflow: auto;
+        }
+
+
+        li > .entry {
+            > span {
+                font-size: 65%;
+                display: inline-block;
+                margin-right: 2px;
+                font-style: normal;
+            }
+            padding: 5px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            cursor: pointer;
+        }
+        li > .entry.active {
+            background-color: #333;
+            color: #fff;
+        }
+        li > .entry.resource-root {
+            display: none;
+        }
+        li > .entry.resource-db, li > .entry.resource-fressian {
+            font-style: italic;
+        }
+
+        .children {
+            overflow: hidden;
+        }
+        .resources, .members, .enumitems {
+
+            border-right: 1px solid #999;
+        }
+
+        .details {
+            position: absolute;
+            label {
+                font-weight: bold;
+                padding-right: 5px;
+            }
+            label:after {
+                content: ":";
+            }
+            .detail {
+                padding: 5px;
+                border-bottom: 1px solid #999;
+                span {
+                    word-wrap: break-word;
+                }
+            }
+            .detail:last-child {
+                border-bottom: 0;
+            }
+
+        }
+    } 
+}
+
+.connectModal {
+    width: 175px;
+    z-index: 6;
+    div {
+        margin-bottom: 5px;
+    }
+
+    label { 
+        width: 50px;
+        display: inline-block;
+    }
+
+    button {
+        float: right;
+    }
+}
+
+.importModal {
+    width: 350px;
+    textarea {
+        width: 100%;
+        height: 300px;
+    }
+    button {
+        float: right;
+    }   
+}
+
+.cellHalo {
+    position: absolute;
+    background: #efefef;
+    border: 1px solid #333;
+    border-top: 0;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 5px;
+    button.retract {
+        float: left;
+    }
+    button.history {
+        margin-left: 35px;
+    }
+    button.idToggle {
+        float: right;
+    }
+}
+
+.output {
+    padding: 5px;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    border-left: 4px solid #999;
+    background: rgba(255, 255, 255, 0.66);
+    overflow: auto;
+}
+
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 666;
+    button { 
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    border-bottom: 1px solid #999;
+    padding: 10px;
+    background: #fdfdfd;
+    opacity: 90%;
+    button {
+      float: right;
+    }
+
+    li {
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px solid #999;
+        display: inline-block;
+        padding: 5px;
+        background: #efefef;
+        margin-right: 5px;
+    
+    }
+}
+
+.widget.query.ui-draggable {
+    width: 350px;
+    height: 300px;
+
+    .CodeMirror, .CodeMirror-scroll { 
+        height: 150px;
+    }
+    .details {
+        .CodeMirror {
+            height: 50px;
+        }
+        width: 100%;
+        top: 150px;
+        overflow: hidden;
+        clear: both;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        .inputs {
+            padding: 5px;
+            overflow:hidden;
+            height: 62px;
+        }
+        .query { 
+            float: right;
+        }
+        .inputToggle {
+            float: left;
+        }
+        .buttons {
+            padding: 5px;
+            padding-right: 10px;
+            overflow: hidden;
+            border-top: 1px solid #333;
+        }
+    }
+    .results {
+        height: 50px;
+        .cols td {
+            font-weight: bold;
+        }
+
+        td {
+            word-break: break-all;
+        }
+        td.idlink {
+            word-break: normal;
+        }
+        .rowsWrapper {
+            overflow: auto;
+            height: 50px;
+        }
+    }
+}
+
+table { 
+    width: 100%;
+    td:first-child {
+        border-left: none;
+    }
+    td {
+        padding: 5px;
+        border-bottom: 1px solid #333;
+        border-left: 1px solid #333;
+
+    }
+
+    td.idlink {
+        color: #0000ff;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    thead {
+        td {
+            font-weight: bold;
+        }
+    }
+}
+
+.widget.namespace.ui-draggable.enumNamespace {
+    height: auto;
+    .attribute {
+        .nameInput {
+            width: 80%;
+        }
+    }
+}
+
+.widget.transact.ui-draggable {
+    width: 250px;
+    height: 250px;
+
+    .CodeMirror {
+        height: 100px;
+    }
+
+    textarea {
+        border: 0;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .buttons {
+        background: #fff;
+        width:100%;
+        position: absolute;
+        padding: 5px;
+        padding-right:5px;
+        padding-bottom: 10px;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        .transact {
+            float: right;
+            margin-right: 10px;
+        }
+        overflow: hidden;
+    }
+
+    .results {
+        margin-top: 39px;
+        overflow: auto;
+        
+    }
+}
+
+.widget.namespace.pendingChanges {
+    border: 3px solid #ffd700;
+}
+
+.widget.namespace.noChanges {
+    border: 3px solid #6b8e23;
+}
+
+.entity {
+    .lit {
+        background: #FFE767;
+    }
+}
+
+.widget.entity.ui-draggable {
+    width: 400px;
+    height: 200px;
+    .searchForm {
+
+        .message {
+            padding: 5px;
+        }
+
+        select, input { 
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .results {
+            border-top: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 5px;
+            overflow: auto;
+            .link, .idlink {
+                color: #0000ff;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+            .result {
+                margin-top: 5px;
+                border-bottom: 1px solid #999;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+                input {
+                    display: block;
+                    border: 1px solid #333;
+                    padding: 5px;
+                    width: 90%;
+
+                }
+
+                input.removed {
+                    color: #ccc;
+                    background: #999;
+                }
+                .entityLink {
+                    text-decoration: underline;
+                    color: #0000ff;
+                    cursor: pointer;
+                }
+                .inputHolder {
+                    position: relative;
+                    input[type="checkbox"] {
+                        margin-bottom:15px;
+                    }
+                    button.remove {
+                        position: absolute;
+                        right: 8%;
+                        top: 2px;
+                    }
+                }
+                .newAttribute {
+                    margin-top: 1em;
+                    margin-bottom: 1em;
+                    background: #efefef;
+                    padding: 5px;
+
+                }
+                .refinput {
+                    position: relative;
+                    input {
+                        width: 90%;
+                    }
+                    .browse {
+                        position: absolute; 
+                        right: 14%;
+                        top: 2px;
+                    }
+                    button.remove {
+                        position: absolute;
+                        right: 8%;
+                        top: 2px;
+                    }
+                }
+            }
+            .result:last-child {
+                border-bottom: 0;
+            }
+            .subEntity .result {
+                border-top: 0;
+                margin-top: 0;
+            }
+            .namespaces {
+                .nsname {
+                    font-weight: bold;
+                    font-size: 110%;
+                }
+                > li > ul {
+                    padding-left: 20px;
+                }
+            }
+
+        }
+        
+        .moreRow {
+            text-align: center;
+            padding: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        label:after {
+            content: ":";
+        }
+    }
+}
+
+.pickerHolder {
+    width: 210px;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.widget.sketch.ui-draggable {
+    background: none;
+    .tools {
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+        > div { display: inline-block; }
+        padding: 5px;
+        border-bottom: 1px solid #999;
+        .activeColor {
+            margin-left: 5px;
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            margin-bottom: -5px;
+        }
+
+        button { float: right;}
+    }
+    .showChrome {
+        display: none;
+    }
+}
+.widget.keepOnTop {
+    z-index: 9999;
+}
+
+.widget.sketch.ui-draggable.nochrome {
+    .handle { visibility: hidden; }
+    .tools { visibility: hidden; }
+    border: 1px solid transparent;
+    border-radius: 0;
+    .showChrome {
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+    canvas {
+        pointer-events: none;
+    }
+}
+
+.widget.namespace.ui-draggable {
+    min-width: 300px;
+    height: auto; 
+    .nameHeader {
+        padding: 5px;
+        overflow: hidden;
+        input, span {
+            background: inherit;        
+            border: 0;
+            font-family: inherit;
+            font-size: 119%;
+            width: 170px;
+            float: left;
+        }
+
+        button {
+            float: right;
+        }
+        border-bottom: 1px solid #999;
+    }
+
+    .buttons { 
+        margin-top: 5px;
+        margin-bottom: 5px;
+        overflow: hidden;
+    }
+
+    button.addAttribute, button.addRecord {
+        float: left;
+        margin-left: 44%;
+    }
+
+    button.dataToggle {
+        float: right;
+        margin-right: 9px;
+    }
+
+    .records {
+        table {
+            width: 100%;
+        }
+
+        button.remove {
+            float: right;
+            margin-right: 6px;
+        }
+        .columns {
+            overflow: hidden;
+            .cell {
+                min-width: 157px;
+                padding: 5px;
+                font-weight: bold;
+                font-size: 115%;
+                border-left: 1px solid #999;
+                border-bottom: 1px solid #999;
+                background: #efefef;
+            }
+            .cell.actionCol {
+                min-width: 32px;
+            }
+            th:first-child {
+                border-left: 0;
+            }
+        }
+
+        td:first-child {
+            border-left: 0;
+        }
+        td.pendingChanges {
+            background: #FFC852;
+        }
+        td {
+            border-left: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 5px;
+            input {
+                border: 0;
+                width: 100%;
+                font-family: inherit;
+                font-size: inherit;
+                background: inherit;
+            }
+
+            position: relative;
+            .entityNS {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-right: 1px solid #999;
+                border-bottom: 1px solid #999;
+                padding: 3px;
+                padding-bottom:1px;
+                padding-top: 1px;
+                font-size: 9pt;
+                background-color: buttonface;
+                cursor: pointer;
+            }
+            
+            .entityField {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            
+                select {
+                    font-size: 9pt;
+                    margin: 0;
+                    option {
+                        font-size: 8pt;
+                    }
+                }
+            }
+
+            .entityVal {
+                max-height: 32px; 
+                overflow: hidden;
+                position: absolute; 
+                right: 15px;
+                bottom: 0;
+                padding-bottom: 1px;
+                padding-left: 2px;
+            }
+
+            .entityBrowse {
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                border-left: 1px solid #999;
+                border-top: 1px solid #999;
+                background-color: buttonface;
+                padding-left: 2px;
+                padding-right: 2px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .attributes {
+        padding: 5px;
+        border-bottom: 1px solid #999;
+        overflow: auto;
+        .attribute.tokenActive {
+            border: 1px solid #9999cc;
+        }
+        .attribute { 
+            border: 1px solid #ffffee;
+            margin-bottom: 5px;
+            .optionsToggle {
+                font-size: 80%;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+            span.name {
+                display: inline-block;
+                margin-left: 3px;
+            }
+
+            div.valueType {
+                width: 85px;
+                height: 18px;
+                padding-top: 3px;
+                float: right;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            span.cardinality {
+                height: 18px;
+                padding-top: 3px;
+                display: inline-block;
+                margin-right: 5px;
+                float: right;
+            }
+
+            .options {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed #999;
+                width:290px;
+                .optionHolder {
+                    label.doc {
+                        display: none;
+                    }
+                    textarea {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        display: block;
+                        width: 280px;
+                        height: 50px;
+                        padding: 5px;
+                    }
+                }
+                label {
+                    width: 90px;
+                    display: inline-block;
+                    padding-right: 5px;
+                    text-align: right;
+
+                }            
+            }
+        }
+
+        .nameInput {
+            width: 80px;
+            height: 21px;
+            border: 0;
+            margin-left: 3px;
+            font-family: inherit;
+            font-size: inherit;
+            display: inline-block;
+        }
+        .typeCombo {
+            float: right;
+            font-family: inherit;
+            font-size: inherit;
+            display: inline-block;
+            height: 21px;
+        } 
+        .oneOrManyToggle {
+            cursor: pointer;
+            width: 16px;
+            height: 19px;
+            text-align: center;
+            float: right;
+            border-radius: 2px;
+            background: #efefef;
+            border: 1px solid #999;
+            display: inline-block;
+            margin-left: 5px;
+        }
+        .removeButton {
+            height: 21px;
+            margin-left: 5px;
+            float: right;
+        }
+    }
+}
+
+.cm-symbol {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cm-s-default span.cm-atom.cm-keyword.cm-missing {
+    color: #ff0000;
+}
+
+span.cm-missing { 
+    color: #ff0000;
+}
+
+span.cm-atom.cm-missing { 
+    color: #ff0000;
+}
+
+.cm-symbol.tokenActive {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.cm-keyword {
+    cursor: pointer;
+}
+
+.vector {
+    display: inline-block;
+    overflow: hidden;
+    margin: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 5px;
+    border-left: 2px solid #333;
+    border-right: 2px solid #333;
+    .inputWrapper {
+        float: left;
+        margin: 5px;
+    }
+    .vector {
+        float: left;
+    }
+    
+    .inputWrapper {
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 5px;
+        display: inline-block;
+        .placeholder {
+    
+        }
+        select {
+            font-size: inherit;
+            font-family: inherit;
+            font-size: 85%;
+        }
+        input,textarea {
+            border: 0;
+            font-size: inherit;
+            font-family: inherit;
+            font-size: 85%;
+            height: 22px;
+    
+        }
+    }
+}
+
+.explorer {
+    position: fixed; 
+    width: 266.64px;
+    right: 55px;
+    bottom: 330px;
+    overflow: hidden;
+    border: 1px solid #999;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    z-index: 1000;
+    .title {
+        borer: 1px solid #999;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom: 1px solid #999;
+        padding: 5px;
+        cursor: pointer;
+        background: #666;
+        color: #fff;
+    }
+    .tree {
+        height: 200px;
+        overflow: auto;
+        li {
+            padding: 5px;
+        }
+        li li:hover {
+            background: #FFE767;
+        }
+        li li {
+            padding-left: 20px;
+            font-size: 85%;
+            cursor: pointer;
+            text-decoration: underline;
+            color: #0000ff;
+            overflow: hidden;
+
+            .desc {
+                float: left;
+            }
+
+            button.remove {
+                float: right;
+            }
+        }
+    }
+
+}
+
+.CartographicSurface {
+    overflow: hidden;
+    .nodes .node.lit {
+        background: #F3DB5C;
+    }
+}
+
+.widget.lit, .widget.note.ui-draggable.lit, .widget.label.ui-draggable.lit .widget.transact.ui-draggable.lit {
+    background: #FFE767 !important;
+    .buttons {
+        background: none !important;
+    }
+}
+
+
+.entry.ui-draggable-dragging, .detail.ui-draggable-dragging {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 5px;
+    background: #efefef;
+    list-style-type: none;
+    word-wrap: break-word;
+    .entityId {
+        font-size: 110%;
+        font-weight: bold;
+    }
+    label {
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    label:after {
+        content: ":";
+    }
+}
+
+.widget.rules.ui-draggable {
+    width: 300px;
+    height: 150px;
+}
+
+.widget.datom.ui-draggable {
+    width: 300px;
+    height: 150px;
+    .details {
+        padding: 5px;
+    }
+    label {
+        font-weight: bold;
+        margin-right: 5px;
+        display: inline-block;
+    }
+}
+
+.connect {
+    z-index: 3;
+}
+.connection {
+    padding-top:15px;
+    z-index: 2;
+    position: fixed;
+    right: 10px; 
+    top: 40px;
+}
+
+
+.vsplitbar {
+    width: 2px;
+    background: #333;
+}
+
+.hsplitbar {
+    height: 2px;
+    background: #333;
+}
+​

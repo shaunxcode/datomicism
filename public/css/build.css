@@ -1,0 +1,23 @@
+
+
+
+
+.CartographicSurface {
+  z-index: 1020;
+  position: fixed;
+  right: 55px;
+  bottom: 55px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+}
+.CartographicSurface .ViewPort {
+  position: absolute;
+  background: rgba(0, 0, 255, 0.3);
+}
+.CartographicSurface .nodes {
+  position: relative;
+}
+.CartographicSurface .nodes .node {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+}
