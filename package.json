@@ -40,6 +40,6 @@
 	},
 	
 	"bin": {
-		"datomicism": "./bin/datomicism.js"
+		"datomicism": "./bin/datomicism"
 	}
 }

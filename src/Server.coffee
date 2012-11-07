@@ -36,7 +36,7 @@ class exports.Server
 					res.send 200
 
 		app.configure =>
-			app.use @express.static "public"
+			app.use @express.static "#{__dirname}/../public"
 			app.use @express.bodyParser()
 
 			app.post "/api/session", (req, res) =>
