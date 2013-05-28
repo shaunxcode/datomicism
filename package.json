@@ -3,7 +3,7 @@
 
 	"description": "interface for visualizing datomic schemas and queries",
 
-	"version": "0.0.1",
+	"version": "0.0.3",
 
 	"keywords": ["lisp", "clojure", "edn", "datomic"],
 

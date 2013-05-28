@@ -2,46 +2,46 @@
 
 
 
-
 .CartographicSurface {
   z-index: 1020;
   position: fixed;
   right: 55px;
   bottom: 55px;
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #333;
+  border: 1px solid #333
 }
+
 .CartographicSurface .ViewPort {
   position: absolute;
-  background: rgba(0, 0, 255, 0.3);
+  background: rgba(0, 0, 255, 0.3)
 }
+
 .CartographicSurface .nodes {
-  position: relative;
+  position: relative
 }
+
 .CartographicSurface .nodes .node {
   position: absolute;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5)
 }
 
-
-
 canvas.sketch {
-  cursor: crosshair;
+  cursor: crosshair
 }
 
 
 .color-picker canvas {
-  border: 1px solid #888;
+  border: 1px solid #888
 }
 
 .color-picker canvas.main:hover {
-  cursor: crosshair;
+  cursor: crosshair
 }
 
 .color-picker canvas.spectrum:hover {
-  cursor: row-resize;
+  cursor: row-resize
 }
 
 .color-picker canvas:active {
-  cursor: none;
+  cursor: none
 }

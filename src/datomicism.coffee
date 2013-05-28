@@ -857,7 +857,7 @@ class NamespaceView extends Widget
         super @model, @id
         @attributes = []
         @records = []
-        
+
         @_state = "attributes"
 
         if @model.isNew()
@@ -879,6 +879,7 @@ class NamespaceView extends Widget
     drawAttributes: ->
         @$attributes.html ""
         for attr in @model.attributes
+            console.log attr, @$attributes
             @addAttribute attr, false
 
     attributeOptions: (model, main, options, isNew = false) ->
@@ -2635,10 +2636,7 @@ window.DatomicIsm =
             if e.keyCode in [$.ui.keyCode.LEFT, $.ui.keyCode.RIGHT, $.ui.keyCode.UP, $.ui.keyCode.DOWN]
                 e.preventDefault()
 
-$ ->
-
-    require.register "component-jquery/index.js", (module, exports, require) -> module.exports = $    
-    
+$ ->    
     bling = require "shaunxcode-bling"
     CartographicSurface = require "shaunxcode-CartographicSurface"
     

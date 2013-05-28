@@ -3,7 +3,6 @@ class exports.Server
 		@datomic = require("datomic").Datomic
 		@express = require "express"
 		@edn = require "jsedn"
-		@edn.setTokenAction "keyword", (token) -> token
 
 		args = require("optimist")
 			.usage("Pass port as -p (to use port 80 you need to sudo)")

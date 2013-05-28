@@ -1,7 +1,27 @@
 #datomicism
+An interface for visualizing datomic schemas and queries. It may be easiest to watch the [video](http://www.screenr.com/J087) to get a quick overview. 
 
+#Getting started
+`npm install datomicism -g`
 
-interface for visualizing datomic schemas and queries.
+start the server (defaults to port 6655) 
+
+`datomicism` 
+
+download latest version of datomic 
+
+start the transactor (defaults to port 4334)
+
+`./bin/transactor config/samples/free-transactor-template.properties `
+
+start the rest server (here we are starting it on port 9999)
+
+`./bin/rest -p 9999 datomicrest datomic:free://localhost:4334/`
+
+navigate to `http://localhost:6655` in your browser
+
+click connect, enter `localhost` for the host and `9999` for the port. If you have a db you are working with select it - otherwise create one by selecting `--new db--`. 
+
 #NOTE
 this is an experimental prototype e.g. please do not look at the code as being anything beside a prototype. In minecraft terms this is my dirt/cobble structure I laid out to see if building the real thing would be worth it. Now I'm busy smelting the stone to start laying down the foundation in brick. However, I feel it does represent my intention fairly well so I welcome feedback re bugs/ux/features. 
 

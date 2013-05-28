@@ -1,7 +1,6 @@
 {
 	"name": "DatomicIsm",
 	"dependencies": {
-		"component/jquery": "*",
 		"component/underscore": "*",
 		"component/emitter": "*",
 		"shaunxcode/jsedn": "*",
