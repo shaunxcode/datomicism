@@ -26,7 +26,7 @@ class exports.Server
 				next()
 
 		ednResponse = (res) => (err, result) => 
-			if err
+			if err or result[0..5] is "<html>"
 				res.send 401
 			else
 				if result 
@@ -41,23 +41,11 @@ class exports.Server
 			app.post "/api/session", (req, res) =>
 				datomicSession = req.body
 				datomicHandle = new @datomic datomicSession.host, datomicSession.port, datomicSession.alias, datomicSession.db 
+				
 				res.send 201
 
 			app.get "/api/session", (req, res) ->
 				res.send datomicSession
-
-			app.get "/api/events", checkHandle, (req, res) ->
-				id = (new Date()).toLocaleTimeString()
-				res.header 'Content-Type', 'text/event-stream'
-				res.header 'Cache-Control', 'no-cache'
-				res.header 'Connection', 'keep-alive' 
-
-				es = datomicHandle.events()
-				es.onmessage = (msg) ->
-					buffer = new Buffer "stuff"
-					res.write "id: #{id}\n"
-					res.write "event: data\n"
-					res.write "data: #{buffer.toString "utf8"}\n\n"
 
 			app.get "/api/storages", checkHandle, (req, res) ->
 				datomicHandle.storages ednResponse res

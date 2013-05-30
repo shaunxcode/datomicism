@@ -3,7 +3,7 @@
 
 	"description": "interface for visualizing datomic schemas and queries",
 
-	"version": "0.0.3",
+	"version": "0.0.4",
 
 	"keywords": ["lisp", "clojure", "edn", "datomic"],
 
@@ -31,6 +31,9 @@
 		"url": "http://www.github.com/shaunxcode/datomicism"
 	}],
 
+	"devDependencies": {
+		"component": "latest"
+	},
 	"dependencies": {
 	    "coffee-script": "latest",
 	    "optimist": "latest",
