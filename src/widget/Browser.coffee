@@ -2,6 +2,7 @@ bling = require "bling"
 _ = require "underscore"
 kosherName = require "../kosherName"
 {NamespaceView} = require "./Namespace"
+{EnumView} = require "./Enum"
 
 class Browser extends require("./Model")
 	

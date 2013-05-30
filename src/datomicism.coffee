@@ -13,7 +13,7 @@ Explorer = require "./Explorer"
 CartographicSurface = require "CartographicSurface"
 Comment = require "./Comment"
 {Schema} = require "./Schema"
-{Namespace, NamespaceView, Entity, EntityView, Browser, BrowserView, Datom, DatomView} = WidgetClasses = require "./widgets"
+{Namespace, NamespaceView, Entity, EntityView, Browser, BrowserView, Datom, DatomView, Tips: WidgetTips, Order: WidgetOrder} = WidgetClasses = require "./widgets"
 {labelPair, textInput} = require "./Input"
 
 window.DatomicIsm =
@@ -52,21 +52,29 @@ window.DatomicIsm =
 						
 		drawToolbar: ->
 			self = this
+			@toolbar = (bling "ul", class: "toolbar").appendTo("body")
+			$win = $(window)
 			
-			widgets = {}
-			@toolbar = (bling "ul", class: "toolbar").appendTo("body").append(
-						widgets.Browser			= bling "li", text: "browser"
-						widgets.Namespace		= bling "li", text: "namespace"
-						widgets.Enum				= bling "li", text: "enum"
-						widgets.Query				= bling "li", text: "query"
-						widgets.Rules				= bling "li", text: "rules"
-						widgets.Transact		= bling "li", text: "transact"
-						widgets.Entity			= bling "li", text: "entity"
-						widgets.Note				= bling "li", text: "note"
-						widgets.Sketch			= bling "li", text: "sketch"
-						connectButton 			= bling "button.connect", text: "connect")
-			 
-			connectButton.on click: =>
+			stopHandler = (modelClass, viewClass) => (e, ui) =>
+						pos = 
+								left: ui.position.left + $win.scrollLeft()
+								top: ui.position.top + $win.scrollTop()
+
+						added = self.addWidget modelClass, viewClass, pos
+						added.view.postDrop?()
+						
+			for widget in WidgetOrder
+				do (widget) -> 
+					bling("li a, img", ->
+							self.toolbar.append @li
+							@img.prop src: "/img/draggable.png"
+							@a.text widget 
+							@a.prop title: WidgetTips[widget]
+						).draggable
+							helper: "clone"
+							stop: stopHandler WidgetClasses[widget], WidgetClasses["#{widget}View"]
+						
+			connectButton = bling("button.connect", text: "connect").appendTo(@toolbar).on click: =>
 						return if $(".connectModal").length
 
 						drawDbOptions = ->
@@ -101,21 +109,6 @@ window.DatomicIsm =
 
 			self.connection.on "connected", -> connectButton.text "connection [connected]"
 			self.connection.on "disconnected", -> connectButton.text "connect [disconnected]"
-			
-			$win = $(window)
-			stopHandler = (modelClass, viewClass) => (e, ui) =>
-						pos = 
-								left: ui.position.left + $win.scrollLeft()
-								top: ui.position.top + $win.scrollTop()
-
-						added = self.addWidget modelClass, viewClass, pos
-						added.view.postDrop?()
-
-			for widget, el of widgets 
-				do (widget, el) -> 
-					el.draggable
-						helper: "clone"
-						stop: stopHandler WidgetClasses[widget], WidgetClasses["#{widget}View"]
 
 		addWidget: (modelClass, viewClass, pos, id, data = {}) ->
 				id or= "widget#{guid()}"
@@ -184,7 +177,21 @@ window.DatomicIsm =
 			@connection = new Connection connectionData
 			@schema = new Schema
 			@connection.on "connected", => @schema.refresh()
-			@connection.connect() if _.size connectionData 
+			if _.size connectionData 
+				@connection.connect() 
+			else
+				Storage.set "widgets",
+					defaultNote:
+						width: 330
+						height: 175
+						left: 42
+						top: 66
+						class: "Note"
+						data:
+							widgetName: null
+							":db/id": null
+							note: "#Welcome to datomicism!\nTo get started: click connect at the top right and enter your host/port and choose your database. Once you have a connection try dragging down a Browser or any other widget and start exploring! If you need help submit an [issue on github](http://github.com/shaunxcode/datomicism/issues) or email me directly [shaunxcode@gmail.com](mailto://shaunxcode@gmail.com)"
+	
 			@views = {}
 			@drawToolbar()
 

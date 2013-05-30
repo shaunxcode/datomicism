@@ -723,8 +723,14 @@ body {
   border: 1px solid #999;
   display: inline-block;
   padding: 5px;
-  background: #efefef;
+  background: #666;
+  color: white;
   margin-right: 5px;
+}
+.toolbar li img {
+  margin-left: 5px;
+  width: 15px;
+  opacity: 0.6;
 }
 .widget.query.ui-draggable {
   width: 350px;
