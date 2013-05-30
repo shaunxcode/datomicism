@@ -53,6 +53,14 @@ window.DatomicIsm =
 		drawToolbar: ->
 			self = this
 			@toolbar = (bling "ul", class: "toolbar").appendTo("body")
+			bling ".Logo img, .LogoText", appendTo: @toolbar, onCreate: -> 
+				@img.prop src: "/img/logo.png"
+				@LogoText.text "Datomicism"
+				@Logo.on
+					mouseenter: -> $(this).find(".LogoText").animate bottom: 0, "fast"
+					mouseleave: -> $(this).find(".LogoText").animate bottom: -14, "fast"
+					click: -> window.open "http://github.com/shaunxcode/datomicism"
+					
 			$win = $(window)
 			
 			stopHandler = (modelClass, viewClass) => (e, ui) =>
@@ -182,7 +190,7 @@ window.DatomicIsm =
 			else
 				Storage.set "widgets",
 					defaultNote:
-						width: 330
+						width: 370
 						height: 175
 						left: 42
 						top: 66

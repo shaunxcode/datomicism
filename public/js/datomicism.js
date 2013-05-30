@@ -13500,6 +13500,30 @@ require.register("datomicism/lib/datomicism.js", function(exports, require, modu
       this.toolbar = (bling("ul", {
         "class": "toolbar"
       })).appendTo("body");
+      bling(".Logo img, .LogoText", {
+        appendTo: this.toolbar,
+        onCreate: function() {
+          this.img.prop({
+            src: "/img/logo.png"
+          });
+          this.LogoText.text("Datomicism");
+          return this.Logo.on({
+            mouseenter: function() {
+              return $(this).find(".LogoText").animate({
+                bottom: 0
+              }, "fast");
+            },
+            mouseleave: function() {
+              return $(this).find(".LogoText").animate({
+                bottom: -14
+              }, "fast");
+            },
+            click: function() {
+              return window.open("http://github.com/shaunxcode/datomicism");
+            }
+          });
+        }
+      });
       $win = $(window);
       stopHandler = function(modelClass, viewClass) {
         return function(e, ui) {
@@ -13723,7 +13747,7 @@ require.register("datomicism/lib/datomicism.js", function(exports, require, modu
       } else {
         Storage.set("widgets", {
           defaultNote: {
-            width: 330,
+            width: 370,
             height: 175,
             left: 42,
             top: 66,

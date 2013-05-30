@@ -44,7 +44,7 @@ canvas.sketch {
 
 body {
   background-image: url(/css/cardboard_flat.png);
-  font-family: ubuntu-mono, serif;
+  font-family: helvetica;
   color: #333;
   background-color: #efefef;
   margin: 0;
@@ -647,7 +647,7 @@ body {
 }
 .connectModal {
   width: 175px;
-  z-index: 6;
+  z-index: 665;
 }
 .connectModal div {
   margin-bottom: 5px;
@@ -710,6 +710,33 @@ body {
   background: #fdfdfd;
   opacity: 90%;
 }
+.toolbar .Logo {
+  float: left;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  height: 30px;
+  overflow: hidden;
+  width: 87px;
+  cursor: pointer;
+}
+.toolbar .Logo img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 30px;
+}
+.toolbar .Logo .LogoText {
+  width: 87px;
+  text-align: center;
+  position: absolute;
+  bottom: -14px;
+  font-size: 9pt;
+  font-family: helvetica;
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+}
 .toolbar button {
   font-family: inherit;
   font-size: inherit;
@@ -730,7 +757,7 @@ body {
 .toolbar li img {
   margin-left: 5px;
   width: 15px;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .widget.query.ui-draggable {
   width: 350px;
@@ -1292,7 +1319,7 @@ span.cm-atom.cm-missing {
   border: 1px solid #999;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
-  z-index: 1000;
+  z-index: 555;
 }
 .explorer .title {
   borer: 1px solid #999;
@@ -1330,6 +1357,7 @@ span.cm-atom.cm-missing {
 }
 .CartographicSurface {
   overflow: hidden;
+  z-index: 555;
 }
 .CartographicSurface .nodes .node.lit {
   background: #F3DB5C;
@@ -1389,7 +1417,6 @@ span.cm-atom.cm-missing {
 }
 .connection {
   padding-top: 15px;
-  z-index: 2;
   position: fixed;
   right: 10px;
   top: 40px;
