@@ -54,7 +54,7 @@ window.DatomicIsm =
 			self = this
 			@toolbar = (bling "ul", class: "toolbar").appendTo("body")
 			bling ".Logo img, .LogoText", appendTo: @toolbar, onCreate: -> 
-				@img.prop src: "/img/logo.png"
+				@img.prop src: "img/logo.png"
 				@LogoText.text "Datomicism"
 				@Logo.on
 					mouseenter: -> $(this).find(".LogoText").animate bottom: 0, "fast"
@@ -75,7 +75,7 @@ window.DatomicIsm =
 				do (widget) -> 
 					bling("li a, img", ->
 							self.toolbar.append @li
-							@img.prop src: "/img/draggable.png"
+							@img.prop src: "img/draggable.png"
 							@a.text widget 
 							@a.prop title: WidgetTips[widget]
 						).draggable
