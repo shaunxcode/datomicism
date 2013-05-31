@@ -13506,7 +13506,7 @@ require.register("datomicism/lib/datomicism.js", function(exports, require, modu
         appendTo: this.toolbar,
         onCreate: function() {
           this.img.prop({
-            src: "/img/logo.png"
+            src: "img/logo.png"
           });
           this.LogoText.text("Datomicism");
           return this.Logo.on({
@@ -13542,7 +13542,7 @@ require.register("datomicism/lib/datomicism.js", function(exports, require, modu
         return bling("li a, img", function() {
           self.toolbar.append(this.li);
           this.img.prop({
-            src: "/img/draggable.png"
+            src: "img/draggable.png"
           });
           this.a.text(widget);
           return this.a.prop({
