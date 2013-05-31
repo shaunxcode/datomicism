@@ -1,1 +1,0 @@
-module.exports = require("./lib/datomicism.js");
