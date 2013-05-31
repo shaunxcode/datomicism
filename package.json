@@ -3,7 +3,7 @@
 
 	"description": "interface for visualizing datomic schemas and queries",
 
-	"version": "0.0.6",
+	"version": "0.0.7",
 
 	"keywords": ["lisp", "clojure", "edn", "datomic"],
 
@@ -37,8 +37,6 @@
 	"dependencies": {
 	    "coffee-script": "latest",
 	    "optimist": "latest",
-	    "jsedn": "latest",
-	    "datomic": "https://github.com/shaunxcode/datomicjs/tarball/master",
 	    "express": "latest"
 	},
 	

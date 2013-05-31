@@ -45,13 +45,13 @@ body {
 				}
 
 				input {
-						margin-top: 2px;
 						border: 0;
 						background: none;
 						margin-left: 5px;
 						font-family: inherit;
 						font-size: 95%;
 						color: #fff;
+						&::-webkit-input-placeholder { color: #666; }
 				}
 		}
 }
@@ -445,19 +445,30 @@ body {
 }
 
 .connectModal {
-		width: 175px;
+		width: 500px;
 		z-index: 665;
-		div {
-				margin-bottom: 5px;
-		}
-
-		label { 
-				width: 50px;
-				display: inline-block;
-		}
 
 		button {
 				float: right;
+		}
+
+		input, select { 
+			margin-left: 5px; 
+			margin-right: 5px; 
+		}
+
+		.Input-port { 
+			width: 50px; 
+		}
+		
+		.dbComboHolder {
+			display: inline-block;
+		}
+		
+		span {
+			display: inline-block;
+			padding: 2px;
+			font-size: 80%;
 		}
 }
 

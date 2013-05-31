@@ -85,13 +85,15 @@ body {
   float: right;
 }
 .widget .handle input {
-  margin-top: 2px;
   border: 0;
   background: none;
   margin-left: 5px;
   font-family: inherit;
   font-size: 95%;
   color: #fff;
+}
+.widget .handle input::-webkit-input-placeholder {
+  color: #666;
 }
 .widget.note.ui-draggable,
 .widget.label.ui-draggable {
@@ -646,18 +648,27 @@ body {
   border-bottom: 0;
 }
 .connectModal {
-  width: 175px;
+  width: 500px;
   z-index: 665;
-}
-.connectModal div {
-  margin-bottom: 5px;
-}
-.connectModal label {
-  width: 50px;
-  display: inline-block;
 }
 .connectModal button {
   float: right;
+}
+.connectModal input,
+.connectModal select {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.connectModal .Input-port {
+  width: 50px;
+}
+.connectModal .dbComboHolder {
+  display: inline-block;
+}
+.connectModal span {
+  display: inline-block;
+  padding: 2px;
+  font-size: 80%;
 }
 .importModal {
   width: 350px;

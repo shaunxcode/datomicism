@@ -103,8 +103,7 @@ class Schema extends require("./widget/Model")
 						for e in packed 
 								attributes[e[0]] = true
 
-						$.get "/api/query", query: "[:find ?e :where [?e :db/ident]]", (items) ->
-
+						DatomicIsm.connection.query "[:find ?e :where [?e :db/ident]]", {}, (items) ->
 								count = items.length
 								checkDone = -> 
 										count--
@@ -113,8 +112,8 @@ class Schema extends require("./widget/Model")
 
 								for item in items
 										do (item) ->
-												$.get "/api/entity/#{item[0]}", (attr) ->
-														self.add attr, if attributes[item] then "attribute" else "enum"
-														checkDone()
+											DatomicIsm.connection.getEntity item[0], (attr) ->
+												self.add attr, if attributes[item] then "attribute" else "enum"
+												checkDone()
 
 module.exports = {Schema, Resource}

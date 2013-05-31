@@ -9,7 +9,7 @@ keyHandler = (keyMap) -> (e) ->
 
 textInput = (model, field, validator, tag = "input") ->
 		curVal = model.get field
-		self = tag.$tag(class: "textInput", value: curVal or "").on 
+		self = tag.$tag(class: "textInput", value: curVal or "", placeholder: field).on 
 				blur: (e) ->
 						val = self.val().trim()
 						model.set field, val

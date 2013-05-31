@@ -14,7 +14,7 @@ CartographicSurface = require "CartographicSurface"
 Comment = require "./Comment"
 {Schema} = require "./Schema"
 {Namespace, NamespaceView, Entity, EntityView, Browser, BrowserView, Datom, DatomView, Tips: WidgetTips, Order: WidgetOrder} = WidgetClasses = require "./widgets"
-{labelPair, textInput} = require "./Input"
+{labelPair, comboInput, textInput} = require "./Input"
 
 window.DatomicIsm =
 		fetchEntity: (entityId, e) ->
@@ -86,9 +86,9 @@ window.DatomicIsm =
 						return if $(".connectModal").length
 
 						drawDbOptions = ->
-								if (host = self.connection.get("host"))?.length and (port = self.connection.get("port"))?.length
+								if (proto = self.connection.get("protocol"))?.length and (host = self.connection.get("host"))?.length and (port = self.connection.get("port"))?.length
 										self.connection.connect ->
-												comboPlaceholder.html labelPair "db", combo = dbCombo self.connection, "db-alias"
+												comboPlaceholder.html combo = dbCombo self.connection, "db-alias"
 												combo.on "changedValue", (evt, val) ->
 														[alias, db] = (edn.parse val).at(":db/alias").split "/"
 														self.connection.set "db", db
@@ -96,21 +96,24 @@ window.DatomicIsm =
 														buttons.$ok.prop "disabled",false
 
 						modal = bling ".connectModal.modal", ->
+								@modal.append input = comboInput {http: "http", https: "https"}, self.connection, "protocol"
+								input.on "change", drawDbOptions
+								@modal.bappend "span", text: "://"
+								
 								for field in ["host", "port"]
-										@modal.append labelPair field, input = textInput self.connection, field
+										@modal.append input = textInput self.connection, field
+										input.addClass "Input-#{field}"
 										input.on "changedValue", drawDbOptions
-
-						modal.append comboPlaceholder = bling "div"
-						modal.bappend "button.@ok, button.@cancel", {self: buttons = {}}, ->
-								@cancel.text("close").on click: ->
-										modal.remove()
-
+										
+										@modal.bappend "span", text: if field is "host" then ":" else "/"
+										
+						modal.append comboPlaceholder = bling ".dbComboHolder"
+						modal.bappend "button.@ok", {self: buttons = {}}, ->
 								@ok.prop("disabled", true).text("OK").on click: ->
 										Storage.set "connection", self.connection.data
 										self.connection.connect ->
 												modal.remove()
 
-						console.log buttons
 						drawDbOptions()
 						modal.addClass "connection"
 						modal.appendTo "body"
@@ -190,15 +193,15 @@ window.DatomicIsm =
 			else
 				Storage.set "widgets",
 					defaultNote:
-						width: 370
-						height: 175
+						width: 380
+						height: 250
 						left: 42
 						top: 66
 						class: "Note"
 						data:
 							widgetName: null
 							":db/id": null
-							note: "#Welcome to datomicism!\nTo get started: click connect at the top right and enter your host/port and choose your database. Once you have a connection try dragging down a Browser or any other widget and start exploring! If you need help submit an [issue on github](http://github.com/shaunxcode/datomicism/issues) or email me directly [shaunxcode@gmail.com](mailto://shaunxcode@gmail.com)"
+							note: "#Welcome to datomicism!\nTo get started: click connect at the top right and enter your protocol/host/port and choose your database. Once you have a connection try dragging down a Browser or any other widget and start exploring! If you need help submit an [issue on github](http://github.com/shaunxcode/datomicism/issues) or email me directly [shaunxcode@gmail.com](mailto://shaunxcode@gmail.com)\n\n Also: make sure you have started your rest service with -o set to the host you are attempting to use datomicism from."
 	
 			@views = {}
 			@drawToolbar()
