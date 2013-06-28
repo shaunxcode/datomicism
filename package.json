@@ -11,13 +11,13 @@
 		"name": "Shaun Gilchrist",
 		"email": "shaunxcode@gmail.com",
 		"web": "http://order-of-no.posterous.com"
-	}], 
+	}],
 
 	"contributors": [{
 		"name": "Shaun Gilchrist",
 		"email": "shaunxcode@gmail.com",
 		"web": "http://order-of-no.posterous.com"
-	}], 
+	}],
 
 	"bugs": "http://www.github.com/shaunxcode/datomicism/issues",
 
@@ -26,10 +26,10 @@
 		"url": "http://www.opensource.org/licenses/mit-license.php"
 	}],
 
-	"repositories": [{
-		"type": "git",
+	"repository" : {
+		"type" : "git",
 		"url": "http://www.github.com/shaunxcode/datomicism"
-	}],
+	},
 
 	"devDependencies": {
 		"component": "latest"
@@ -39,7 +39,7 @@
 	    "optimist": "latest",
 	    "express": "latest"
 	},
-	
+
 	"bin": {
 		"datomicism": "./bin/datomicism"
 	}
