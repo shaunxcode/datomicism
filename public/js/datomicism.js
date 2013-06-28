@@ -2905,7 +2905,7 @@ Sketch.prototype.export = function() {
 /**
  * import paths for drawing
  *
- * @param [{points: [{x, y}], size: Number, opacity: Number, color: {Color}}] 
+ * @param [{points: [{x, y}], size: Number, opacity: Number, color: {Color}}]
  * @return {Sketch}
  * @api public
  */
@@ -14156,8 +14156,8 @@ require.register("datomicism/lib/Connection.js", function(exports, require, modu
     };
 
     Connection.prototype.transact = function(transaction, cb) {
-      return this.request("post", this.apiUrl("transact"), {
-        transaction: transaction
+      return this.request("post", this.url("data/" + this.data.alias + "/" + this.data.db + "/"), {
+        "tx-data": transaction
       }, function(result) {
         if (typeof cb === "function") {
           cb(result);
