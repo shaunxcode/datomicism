@@ -35,6 +35,6 @@ class Connection extends require("./widget/Model")
 				DatomicIsm.schema.refresh()
 
 		query: (q, args, cb) ->
-				@request "get", @apiUrl("query"), {q, args: "[{:db/alias \"#{@data.alias}/#{@data.db}\"}]"}, cb 
+				@request "get", @apiUrl("query"), {q, args: "[{:db/alias \"#{@data.alias}/#{@data.db}\"}"+ args +"]"}, cb 
 
 module.exports = Connection
