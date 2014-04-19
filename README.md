@@ -16,7 +16,7 @@ start the transactor (defaults to port 4334)
 
 start the rest server (here we are starting it on port 9999)
 
-`./bin/rest -p 9999 datomicrest datomic:free://localhost:4334/`
+`./bin/rest -p 9999 -o http://localhost:6655 datomicrest datomic:free://localhost:4334/`
 
 navigate to `http://localhost:6655` in your browser
 
